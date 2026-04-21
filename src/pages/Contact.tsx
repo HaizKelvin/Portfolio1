@@ -21,7 +21,7 @@ export default function Contact() {
               <div className="space-y-12">
                 <div>
                   <h3 className="font-mono text-[10px] uppercase tracking-widest text-secondary mb-6 font-bold">Contact Details</h3>
-                  <a href="mailto:hello@wacchira.dev" className="text-3xl font-medium tracking-tight hover:text-accent transition-colors">
+                  <a href="mailto:wachirakevin65@gmail.com" className="text-3xl font-medium tracking-tight hover:text-accent transition-colors">
                     hello@kelvin.dev
                   </a>
                 </div>
