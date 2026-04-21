@@ -4,7 +4,7 @@ import { MessageSquare, X, Send, Loader2, Bot } from "lucide-react";
 import { GoogleGenAI } from "@google/genai";
 
 const getAI = () => {
-  const key = process.env.GEMINI_API_KEY;
+  const key = process.env.GEMINI_API_KEY || (import.meta as any).env?.VITE_GEMINI_API_KEY;
   if (!key) {
     console.warn("GEMINI_API_KEY is missing. AI Assistant will be limited.");
     return null;

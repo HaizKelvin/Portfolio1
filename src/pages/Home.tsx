@@ -96,7 +96,7 @@ export default function Home() {
         {/* Feature Image Section */}
         <motion.div
           variants={itemVariants}
-          className="relative group rounded-[2.5rem] overflow-hidden aspect-[4/5] md:aspect-[21/9] mb-32 shadow-2xl bg-neutral-900 border border-black/5 dark:border-white/5"
+          className="relative group rounded-[2.5rem] overflow-hidden aspect-[3/2] md:aspect-video lg:aspect-[21/9] mb-32 shadow-2xl bg-neutral-900 border border-black/5 dark:border-white/5"
         >
           <motion.img 
             initial={{ scale: 1.2 }}
@@ -108,7 +108,7 @@ export default function Home() {
             referrerPolicy="no-referrer"
           />
           <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-60 group-hover:opacity-40 transition-opacity duration-500" />
-          <div className="absolute bottom-10 left-10 text-white">
+          <div className="absolute bottom-10 left-10 right-10 text-white">
             <div className="flex items-center gap-2 mb-2">
               <Sparkles size={14} className="text-accent" />
               <p className="font-mono text-[10px] uppercase tracking-[0.3em] opacity-80 font-bold">Identity & Vision</p>
@@ -120,22 +120,22 @@ export default function Home() {
         {/* Categories Section */}
         <motion.div 
           variants={itemVariants}
-          className="grid grid-cols-1 md:grid-cols-3 gap-px bg-black/10 dark:bg-white/10 rounded-[2.5rem] overflow-hidden border border-black/10 dark:border-white/10 shadow-xl"
+          className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-px bg-transparent md:bg-black/10 md:dark:bg-white/10 rounded-[2.5rem] overflow-hidden border-none md:border md:border-black/10 md:dark:border-white/10 shadow-none md:shadow-xl"
         >
           {[
             { tag: "Software", title: "Technical Systems", desc: "Developing robust software solutions with a focus on data structures and algorithms." },
             { tag: "Web", title: "Full-Stack Engineering", desc: "Building scalable, accessible, and fast web applications using modern frameworks." },
             { tag: "Theory", title: "Algorithmic Design", desc: "Applying computational principles to solve complex real-world logic problems." }
-          ].map((item, i) => (
+          ].map((item, index) => (
             <div 
               key={item.tag}
-              className="p-12 bg-white dark:bg-black hover:bg-neutral-50 dark:hover:bg-neutral-950 transition-colors group cursor-default"
+              className={`p-10 md:p-12 bg-white dark:bg-black hover:bg-neutral-50 dark:hover:bg-neutral-950 transition-all duration-300 group cursor-default border border-black/10 dark:border-white/10 md:border-none rounded-[2rem] md:rounded-none`}
             >
               <div className="w-8 h-8 rounded-lg bg-accent/5 dark:bg-accent/10 border border-accent/10 dark:border-accent/20 flex items-center justify-center mb-10 group-hover:bg-accent group-hover:text-white transition-all duration-300">
                 <span className="font-mono text-[7px] font-bold text-accent group-hover:text-white uppercase">{item.tag[0]}</span>
               </div>
               <h3 className="text-2xl font-bold mb-4 tracking-tight uppercase leading-none">{item.title}</h3>
-              <p className="text-secondary font-light leading-relaxed">{item.desc}</p>
+              <p className="text-secondary font-light leading-relaxed text-[15px]">{item.desc}</p>
             </div>
           ))}
         </motion.div>

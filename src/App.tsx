@@ -35,7 +35,7 @@ export default function App() {
   return (
     <Router>
       <ScrollToTop />
-      <div className="relative min-h-screen">
+      <div className="relative min-h-screen pb-16">
         {/* Grain Overlay */}
         <div className="fixed inset-0 pointer-events-none z-[100] opacity-[0.03] dark:opacity-[0.05]">
           <div className="absolute inset-0 bg-[url('https://grain-y.com/assets/img/noise.png')]"></div>
