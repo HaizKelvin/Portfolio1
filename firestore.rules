@@ -1,0 +1,70 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+    // 0. Catch-all safety net
+    match /{document=**} {
+      allow read, write: if false;
+    }
+
+    // 3. Primitives
+    function isSignedIn() {
+      return request.auth != null;
+    }
+
+    function isEmailVerified() {
+      return isSignedIn() && request.auth.token.email_verified == true;
+    }
+
+    // Auth tokens NEVER contain custom claims; look up roles in trusted document
+    function isAdmin() {
+      return isEmailVerified() && exists(/databases/$(database)/documents/admins/$(request.auth.uid));
+    }
+
+    function isValidId(id) {
+      return id is string && id.size() <= 128 && id.matches('^[a-zA-Z0-9_\\-]+$');
+    }
+
+    // Helper for data access
+    function incoming() { return request.resource.data; }
+    function existing() { return resource.data; }
+
+    // 2. Validation Blueprints
+    function isValidProject(data) {
+      return data.keys().hasAll(['title', 'type', 'image', 'createdAt'])
+        && data.title is string && data.title.size() > 0 && data.title.size() <= 100
+        && data.type is string && data.type.size() > 0 && data.type.size() <= 50
+        && data.image is string && data.image.size() > 0 && data.image.size() <= 500
+        && data.createdAt is timestamp
+        && (data.keys().size() == 4 || (data.keys().hasAll(['description']) && data.description is string && data.description.size() <= 1000))
+        && (data.keys().size() <= 6 && (data.get('link', '') is string));
+    }
+
+    // 4. Fortress Rules
+    match /projects/{projectId} {
+      // 8. Secure List Queries (Evaluation on resource.data)
+      allow read: if true; 
+
+      allow create: if (
+        isAdmin() && 
+        isValidId(projectId) && 
+        isValidProject(incoming()) && 
+        incoming().createdAt == request.time
+      );
+
+      allow update: if (
+        isAdmin() && 
+        isValidId(projectId) && 
+        isValidProject(incoming()) && 
+        incoming().createdAt == existing().createdAt
+      );
+
+      allow delete: if isAdmin() && isValidId(projectId);
+    }
+
+    match /admins/{adminId} {
+      // Users can only see their own admin status
+      allow read: if isSignedIn() && request.auth.uid == adminId;
+      allow write: if false;
+    }
+  }
+}

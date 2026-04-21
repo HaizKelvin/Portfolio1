@@ -1,0 +1,37 @@
+{
+  "entities": {
+    "Project": {
+      "title": "Portfolio Project",
+      "description": "A representation of a project in the portfolio.",
+      "type": "object",
+      "properties": {
+        "title": { "type": "string", "description": "The name of the project." },
+        "type": { "type": "string", "description": "The category of the project (e.g., Fintech, Web Design)." },
+        "image": { "type": "string", "description": "URL to the project's cover image." },
+        "description": { "type": "string", "description": "Detailed description of the project." },
+        "link": { "type": "string", "description": "External link to the project or case study." },
+        "createdAt": { "type": "string", "format": "date-time", "description": "When the project was added." }
+      },
+      "required": ["title", "type", "image", "createdAt"]
+    },
+    "Admin": {
+      "title": "Administrator",
+      "description": "System administrator with write permissions.",
+      "type": "object",
+      "properties": {
+        "email": { "type": "string" }
+      },
+      "required": ["email"]
+    }
+  },
+  "firestore": {
+    "/projects/{projectId}": {
+      "schema": "Project",
+      "description": "Collection of portfolio projects."
+    },
+    "/admins/{adminId}": {
+      "schema": "Admin",
+      "description": "List of authorized administrators."
+    }
+  }
+}
