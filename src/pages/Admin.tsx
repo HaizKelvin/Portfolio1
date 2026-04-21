@@ -128,54 +128,54 @@ export default function Admin() {
           <form onSubmit={handleSubmit} className="space-y-8">
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
               <div className="space-y-2">
-                <label className="font-mono text-[10px] uppercase tracking-widest text-secondary">Title</label>
+                <label className="font-mono text-[10px] uppercase tracking-widest text-secondary font-bold opacity-60">Title</label>
                 <input 
                   required
                   value={formData.title}
                   onChange={e => setFormData({...formData, title: e.target.value})}
-                  className="w-full bg-transparent border-b border-black/10 dark:border-white/10 py-4 outline-none focus:border-accent transition-colors" 
-                  placeholder="e.g. Quantum Dashboard"
+                  className="w-full bg-black/5 dark:bg-white/5 border-b border-black/20 dark:border-white/10 p-4 rounded-t-lg outline-none focus:border-accent focus:bg-accent/5 transition-all text-primary" 
+                   placeholder="e.g. Quantum Dashboard"
                 />
               </div>
               <div className="space-y-2">
-                <label className="font-mono text-[10px] uppercase tracking-widest text-secondary">Category</label>
+                <label className="font-mono text-[10px] uppercase tracking-widest text-secondary font-bold opacity-60">Category</label>
                 <input 
                   required
                   value={formData.type}
                   onChange={e => setFormData({...formData, type: e.target.value})}
-                  className="w-full bg-transparent border-b border-black/10 dark:border-white/10 py-4 outline-none focus:border-accent transition-colors" 
+                  className="w-full bg-black/5 dark:bg-white/5 border-b border-black/20 dark:border-white/10 p-4 rounded-t-lg outline-none focus:border-accent focus:bg-accent/5 transition-all text-primary" 
                   placeholder="e.g. Full-Stack Systems"
                 />
               </div>
             </div>
 
             <div className="space-y-2">
-              <label className="font-mono text-[10px] uppercase tracking-widest text-secondary">Image URL</label>
+              <label className="font-mono text-[10px] uppercase tracking-widest text-secondary font-bold opacity-60">Image URL</label>
               <input 
                 required
                 value={formData.image}
                 onChange={e => setFormData({...formData, image: e.target.value})}
-                className="w-full bg-transparent border-b border-black/10 dark:border-white/10 py-4 outline-none focus:border-accent transition-colors" 
+                className="w-full bg-black/5 dark:bg-white/5 border-b border-black/20 dark:border-white/10 p-4 rounded-t-lg outline-none focus:border-accent focus:bg-accent/5 transition-all text-primary" 
                 placeholder="Direct link to project image (e.g. from ImgBB)"
               />
             </div>
 
             <div className="space-y-2">
-              <label className="font-mono text-[10px] uppercase tracking-widest text-secondary">Link (Optional)</label>
+              <label className="font-mono text-[10px] uppercase tracking-widest text-secondary font-bold opacity-60">Link (Optional)</label>
               <input 
                 value={formData.link}
                 onChange={e => setFormData({...formData, link: e.target.value})}
-                className="w-full bg-transparent border-b border-black/10 dark:border-white/10 py-4 outline-none focus:border-accent transition-colors" 
+                className="w-full bg-black/5 dark:bg-white/5 border-b border-black/20 dark:border-white/10 p-4 rounded-t-lg outline-none focus:border-accent focus:bg-accent/5 transition-all text-primary" 
                 placeholder="https://github.com/..."
               />
             </div>
 
             <div className="space-y-2">
-              <label className="font-mono text-[10px] uppercase tracking-widest text-secondary">Description</label>
+              <label className="font-mono text-[10px] uppercase tracking-widest text-secondary font-bold opacity-60">Description</label>
               <textarea 
                 value={formData.description}
                 onChange={e => setFormData({...formData, description: e.target.value})}
-                className="w-full bg-transparent border-b border-black/10 dark:border-white/10 py-4 outline-none focus:border-accent transition-colors resize-none" 
+                className="w-full bg-black/5 dark:bg-white/5 border-b border-black/20 dark:border-white/10 p-4 rounded-t-lg outline-none focus:border-accent focus:bg-accent/5 transition-all resize-none text-primary" 
                 rows={4}
                 placeholder="Briefly describe the technologies used and key features..."
               />

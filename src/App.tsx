@@ -6,6 +6,7 @@ import Work from "./pages/Work";
 import About from "./pages/About";
 import Contact from "./pages/Contact";
 import Admin from "./pages/Admin";
+import Interests from "./pages/Interests";
 import AIAssistant from "./components/AIAssistant";
 import { motion, AnimatePresence } from "motion/react";
 import { ReactNode } from "react";
@@ -35,25 +36,29 @@ export default function App() {
   return (
     <Router>
       <ScrollToTop />
-      <div className="relative min-h-screen pb-16">
-        {/* Grain Overlay */}
-        <div className="fixed inset-0 pointer-events-none z-[100] opacity-[0.03] dark:opacity-[0.05]">
-          <div className="absolute inset-0 bg-[url('https://grain-y.com/assets/img/noise.png')]"></div>
-        </div>
+      
+      {/* Grain Overlay */}
+      <div className="fixed inset-0 pointer-events-none z-[100] opacity-[0.03] dark:opacity-[0.05]">
+        <div className="absolute inset-0 bg-[url('https://grain-y.com/assets/img/noise.png')]"></div>
+      </div>
 
-        <Navigation isDark={isDark} toggleTheme={toggleTheme} />
-        <AIAssistant />
-        
+      {/* Global Persist Components (Fixed Position) */}
+      <Navigation isDark={isDark} toggleTheme={toggleTheme} />
+      
+      <div className="relative min-h-screen z-10">
         <AnimatePresence mode="wait">
           <Routes>
             <Route path="/" element={<PageWrapper><Home /></PageWrapper>} />
             <Route path="/work" element={<PageWrapper><Work /></PageWrapper>} />
             <Route path="/about" element={<PageWrapper><About /></PageWrapper>} />
             <Route path="/contact" element={<PageWrapper><Contact /></PageWrapper>} />
+            <Route path="/interests" element={<PageWrapper><Interests /></PageWrapper>} />
             <Route path="/admin" element={<PageWrapper><Admin /></PageWrapper>} />
           </Routes>
         </AnimatePresence>
       </div>
+
+      <AIAssistant />
     </Router>
   );
 }

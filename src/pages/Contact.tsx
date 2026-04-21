@@ -50,24 +50,37 @@ export default function Contact() {
             </motion.div>
           </div>
 
-          <div className="bg-neutral-50 dark:bg-white/5 p-10 lg:p-16 rounded-[3rem] border border-black/5 dark:border-white/5">
-            <h3 className="text-2xl font-bold mb-10 tracking-tight uppercase">Inquiry form</h3>
-            <form className="space-y-10" onSubmit={(e) => e.preventDefault()}>
-              <div className="space-y-2">
-                <label className="font-mono text-[10px] uppercase tracking-widest opacity-40">Your name</label>
-                <input type="text" className="w-full bg-transparent border-b border-black/10 dark:border-white/10 py-4 outline-none focus:border-accent transition-colors" placeholder="Full name" />
+          <div className="bg-white dark:bg-black/40 p-10 lg:p-20 rounded-[3rem] border border-black/20 dark:border-white/10 shadow-2xl">
+            <h3 className="text-3xl font-black mb-12 tracking-tight uppercase">Inquiry System</h3>
+            <form className="space-y-12" onSubmit={(e) => e.preventDefault()}>
+              <div className="space-y-4">
+                <label className="font-mono text-[11px] uppercase tracking-[0.2em] font-black text-accent px-4 border-l-2 border-accent">Identification: USR_NAME</label>
+                <input 
+                  type="text" 
+                  className="w-full bg-neutral-100 dark:bg-white/5 border-2 border-black/10 dark:border-white/10 p-6 rounded-2xl outline-none focus:ring-4 focus:ring-accent/20 focus:bg-white dark:focus:bg-black transition-all text-black dark:text-white text-lg placeholder:text-neutral-500 font-bold" 
+                  placeholder="Kelvin Wachira" 
+                />
               </div>
-              <div className="space-y-2">
-                <label className="font-mono text-[10px] uppercase tracking-widest opacity-40">Your email</label>
-                <input type="email" className="w-full bg-transparent border-b border-black/10 dark:border-white/10 py-4 outline-none focus:border-accent transition-colors" placeholder="email@address.com" />
+              <div className="space-y-4">
+                <label className="font-mono text-[11px] uppercase tracking-[0.2em] font-black text-accent px-4 border-l-2 border-accent">Identification: USR_EMAIL</label>
+                <input 
+                  type="email" 
+                  className="w-full bg-neutral-100 dark:bg-white/5 border-2 border-black/10 dark:border-white/10 p-6 rounded-2xl outline-none focus:ring-4 focus:ring-accent/20 focus:bg-white dark:focus:bg-black transition-all text-black dark:text-white text-lg placeholder:text-neutral-500 font-bold" 
+                  placeholder="contact@architect.dev" 
+                />
               </div>
-              <div className="space-y-2">
-                <label className="font-mono text-[10px] uppercase tracking-widest opacity-40">Your message</label>
-                <textarea className="w-full bg-transparent border-b border-black/10 dark:border-white/10 py-4 outline-none focus:border-accent transition-colors resize-none" rows={4} placeholder="Describe your project" />
+              <div className="space-y-4">
+                <label className="font-mono text-[11px] uppercase tracking-[0.2em] font-black text-accent px-4 border-l-2 border-accent">Payload: MSG_DATA</label>
+                <textarea 
+                  className="w-full bg-neutral-100 dark:bg-white/5 border-2 border-black/10 dark:border-white/10 p-6 rounded-2xl outline-none focus:ring-4 focus:ring-accent/20 focus:bg-white dark:focus:bg-black transition-all resize-none text-black dark:text-white text-lg min-h-[220px] placeholder:text-neutral-500 font-bold" 
+                  placeholder="Describe your architectural challenge..." 
+                />
               </div>
-              <button className="group flex items-center justify-between w-full p-8 bg-black text-white dark:bg-white dark:text-black rounded-2xl hover:bg-accent dark:hover:bg-accent dark:hover:text-white transition-all shadow-xl">
-                <span className="text-lg font-bold uppercase tracking-widest">Send Inquiry</span>
-                <ArrowRight className="group-hover:translate-x-2 transition-transform" />
+              <button className="group flex items-center justify-between w-full p-10 bg-accent text-white rounded-3xl hover:brightness-110 active:scale-[0.98] transition-all shadow-2xl shadow-accent/20">
+                <span className="text-xl font-black md:text-2xl uppercase tracking-[0.1em]">Execute Inquiry</span>
+                <div className="w-14 h-14 rounded-full bg-white/20 flex items-center justify-center group-hover:translate-x-2 transition-transform">
+                  <ArrowRight size={28} />
+                </div>
               </button>
             </form>
           </div>

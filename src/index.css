@@ -20,15 +20,15 @@
   :root {
     --bg-base: #ffffff;
     --text-primary: #111111;
-    --text-secondary: #666666;
-    --glass-bg: rgba(255, 255, 255, 0.7);
-    --glass-border: rgba(0, 0, 0, 0.1);
+    --text-secondary: #374151;
+    --glass-bg: rgba(255, 255, 255, 0.8);
+    --glass-border: rgba(0, 0, 0, 0.15);
   }
 
   .dark {
     --bg-base: #000000;
     --text-primary: #ffffff;
-    --text-secondary: #888888;
+    --text-secondary: #9ca3af;
     --glass-bg: rgba(0, 0, 0, 0.7);
     --glass-border: rgba(255, 255, 255, 0.1);
   }
